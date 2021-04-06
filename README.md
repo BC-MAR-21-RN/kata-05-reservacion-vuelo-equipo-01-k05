@@ -85,4 +85,7 @@ En la carpeta [img](/img) de este repositorio se encuentra el diseño solicitado
 
 ## Recursos
 [Para apoyo de tus actividades utiliza esta lista de recursos recomendados](https://github.com/bright-coders/commons/tree/master/topics/resources-react-native)
+
+##CodeClimate
+[![Maintainability](https://api.codeclimate.com/v1/badges/a5c03d3524fed569acc4/maintainability)](https://codeclimate.com/github/BC-MAR-21-RN/kata-05-reservacion-vuelo-equipo-01-k05/maintainability)
   
