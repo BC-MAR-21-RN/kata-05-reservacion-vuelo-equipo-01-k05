@@ -1,14 +1,16 @@
 import React from 'react';
 import {View} from 'react-native';
-import PrimaryButton from './src/components/PrimaryButton';
+import Login from './src/components/Login';
 
 const App = () => {
   return (
     <View>
-      <PrimaryButton
-        pressFunction={() => console.log('!Pressed')}
-        textButton="Sign up"
-        isDisable={true}
+      <Login
+        errors={{
+          mailError: false,
+          passError: false,
+          mailRepeat: false,
+        }}
       />
     </View>
   );
