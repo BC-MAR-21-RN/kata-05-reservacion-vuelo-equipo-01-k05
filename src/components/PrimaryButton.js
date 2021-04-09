@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import { theme } from '../constants';
+
+const { COLORS } = theme;
 
 class PrimaryButton extends Component {
   constructor(props) {
@@ -35,7 +38,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     alignSelf: 'center',
-    width: '90%',
+    width: '100%',
     padding: 10,
     borderRadius: 10,
   },
@@ -51,7 +54,7 @@ const styles = StyleSheet.create({
     elevation: 10,
   },
   buttonDisabled: {
-    backgroundColor: '#BCBBBD',
+    backgroundColor: COLORS.mutedGray,
   },
   viewText: {
     flexDirection: 'row',
