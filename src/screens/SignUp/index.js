@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, ScrollView, StyleSheet } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 
 import { theme } from '../../constants';
@@ -14,6 +14,7 @@ import PrimaryButton from '../../components/PrimaryButton';
 
 const index = ({ navigation }) => {
     return (
+        <ScrollView>
         <ScreenContainer>
             <Header label="Sign Up"/>
             <Container>
@@ -61,6 +62,7 @@ const index = ({ navigation }) => {
                 </View>
             </Container>
         </ScreenContainer>
+        </ScrollView>
     )
 }
 
