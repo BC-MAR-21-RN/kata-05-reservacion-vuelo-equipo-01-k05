@@ -1,14 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
-import PrimaryButton from './src/components/PrimaryButton';
+import DataFlight from './src/components/DataFlight';
 
 const App = () => {
   return (
     <View>
-      <PrimaryButton
-        pressFunction={() => console.log('!Pressed')}
-        textButton="Sign up"
-        isDisable={true}
+      <DataFlight
+        orig={'Washington D.C., USA'}
+        dest={'Rome, Italy'}
+        date={'September 23, 2020'}
+        passengers={3}
       />
     </View>
   );
