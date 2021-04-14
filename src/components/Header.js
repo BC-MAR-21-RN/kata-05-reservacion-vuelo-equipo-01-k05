@@ -8,9 +8,7 @@ const Header = ({headerLabel}) => {
   return (
     <>
       <SafeAreaView />
-      <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>{headerLabel}</Text>
-      </View>
+      <Text style={styles.headerText}>{headerLabel}</Text>
     </>
   );
 };
@@ -18,12 +16,10 @@ const Header = ({headerLabel}) => {
 export default Header;
 
 const styles = StyleSheet.create({
-  headerContainer: {
-    paddingVertical: SIZES.padding4,
-  },
   headerText: {
     ...FONTS.h2,
     fontWeight: 'bold',
     color: COLORS.primary,
+    paddingVertical: SIZES.padding4,
   },
 });
