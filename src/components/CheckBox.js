@@ -31,7 +31,7 @@ const CheckBox = ({label}) => {
           <View />
         )}
       </RectButton>
-      <View style={styles.checkBoxContainer}>
+      <View style={styles.checkBoxLabelContainer}>
         <Text style={styles.checkBoxLabel}>{label}</Text>
       </View>
     </View>
@@ -46,13 +46,14 @@ const styles = StyleSheet.create({
     height: BOX_SIZE,
   },
   box: {
+    borderWidth: 1,
     width: BOX_SIZE * 2,
+    alignItems: 'center',
     height: BOX_SIZE * 2,
     justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
+    borderColor: COLORS.black,
   },
-  checkBoxContainer: {
+  checkBoxLabelContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
