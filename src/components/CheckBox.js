@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     borderColor: COLORS.black,
   },
-  checkBoxLabelContainer: {
+  checkBoxContainer: {
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     ...FONTS.body3,
     color: COLORS.darkgray,
   },
-  checkBoxContainer: {
+  checkBoxLabelContainer: {
     marginHorizontal: 10,
   },
 });
