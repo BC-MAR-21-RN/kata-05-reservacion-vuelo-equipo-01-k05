@@ -10,7 +10,7 @@ const index = ({navigation}) => {
   return (
     <ScrollView bounces={false} style={styles.scrollView}>
       <Container isScreen>
-        <Header label="Sign Up" />
+        <Header headerLabel="Sign Up" />
         <Container>
           <TextInput title="First Name" />
           <TextInput
@@ -26,10 +26,10 @@ const index = ({navigation}) => {
           />
         </Container>
         <Container>
-          <CheckBox label="I agree to the Terms and Privacy Policy." />
+          <CheckBox checkBoxlabel="I agree to the Terms and Privacy Policy." />
         </Container>
         <Container>
-          <CheckBox label="Subscribe for select product updates." />
+          <CheckBox checkBoxlabel="Subscribe for select product updates." />
         </Container>
         <Container>
           <Button textButton="Sign Up" />

@@ -7,7 +7,7 @@ import {icons, theme} from '../constants';
 const {FONTS, COLORS} = theme;
 const BOX_SIZE = 11;
 
-const CheckBox = ({label}) => {
+const CheckBox = ({checkBoxlabel}) => {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
@@ -32,7 +32,7 @@ const CheckBox = ({label}) => {
         )}
       </RectButton>
       <View style={styles.checkBoxLabelContainer}>
-        <Text style={styles.checkBoxLabel}>{label}</Text>
+        <Text style={styles.checkBoxLabel}>{checkBoxlabel}</Text>
       </View>
     </View>
   );

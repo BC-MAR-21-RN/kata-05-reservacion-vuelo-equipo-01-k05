@@ -4,12 +4,12 @@ import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
 import {theme} from '../constants';
 const {SIZES, FONTS, COLORS} = theme;
 
-const Header = ({label}) => {
+const Header = ({headerLabel}) => {
   return (
     <>
       <SafeAreaView />
       <View style={styles.headerContainer}>
-        <Text style={styles.headerText}>{label}</Text>
+        <Text style={styles.headerText}>{headerLabel}</Text>
       </View>
     </>
   );
