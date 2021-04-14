@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
     right: 10,
     width: 20,
     height: 18,
-    tintColor: 'gray',
+    tintColor: 'darkgray',
   },
 });
 
