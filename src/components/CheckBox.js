@@ -13,28 +13,26 @@ const CheckBox = ({label}) => {
   return (
     <View style={styles.checkBoxContainer}>
       <RectButton
-        style={[styles.box,
+        style={[
+          styles.box,
           {
-            backgroundColor: isChecked ?
-                        COLORS.primary :
-                        COLORS.white,
-            borderColor: isChecked ?
-                        COLORS.primary :
-                        COLORS.black,
-          }]}
-        onPress={() => setIsChecked(!isChecked)}
-      >
-        { isChecked ?
-                    <Image
-                      source={icons.check}
-                      style={styles.icon}
-                      resizeMode="contain"
-                    /> :
-                    <View/>
-        }
+            backgroundColor: isChecked ? COLORS.primary : COLORS.white,
+            borderColor: isChecked ? COLORS.primary : COLORS.black,
+          },
+        ]}
+        onPress={() => setIsChecked(!isChecked)}>
+        {isChecked ? (
+          <Image
+            source={icons.check}
+            style={styles.icon}
+            resizeMode="contain"
+          />
+        ) : (
+          <View />
+        )}
       </RectButton>
       <View style={styles.labelContainer}>
-        <Text style={styles.textLabel}>{ label }</Text>
+        <Text style={styles.textLabel}>{label}</Text>
       </View>
     </View>
   );

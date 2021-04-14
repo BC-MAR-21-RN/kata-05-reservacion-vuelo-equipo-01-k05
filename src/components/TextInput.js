@@ -17,42 +17,39 @@ const TextInput = ({title, password, error, note}) => {
   return (
     <>
       <View style={styles.viewTitle}>
-        <Text style={styles.textTitle}>{ title }</Text>
-        <Text style={styles.textError}>{ error }</Text>
+        <Text style={styles.textTitle}>{title}</Text>
+        <Text style={styles.textError}>{error}</Text>
       </View>
       <View
         style={[
           styles.BoxContainer,
           {
-            borderColor: isFocused ?
-                        COLORS.primary :
-                        COLORS.darkgray,
-          }]}
-      >
+            borderColor: isFocused ? COLORS.primary : COLORS.darkgray,
+          },
+        ]}>
         <RNTextInput
-          secureTextEntry={ isPassVisible }
+          secureTextEntry={isPassVisible}
           onFocus={() => setIsFocused(!isFocused)}
           style={styles.RNTextInputStyle}
         />
-        { password ?
-                    <TouchableOpacity
-                      onPress={() => setIsPassVisible(!isPassVisible)}
-                    >
-                      <Image
-                        source={icons.eye}
-                        style={[
-                          styles.icon, {
-                            tintColor: isFocused ?
-                                    COLORS.primary :
-                                    COLORS.darkgray,
-                          }]}
-                        resizeMode="contain"
-                      />
-                    </TouchableOpacity> :
-                    <View/>
-        }
+        {password ? (
+          <TouchableOpacity onPress={() => setIsPassVisible(!isPassVisible)}>
+            <Image
+              source={icons.eye}
+              style={[
+                styles.icon,
+                {
+                  tintColor: isFocused ? COLORS.primary : COLORS.darkgray,
+                },
+              ]}
+              resizeMode="contain"
+            />
+          </TouchableOpacity>
+        ) : (
+          <View />
+        )}
       </View>
-      <Text style={styles.textNote}>{ note }</Text>
+      <Text style={styles.textNote}>{note}</Text>
     </>
   );
 };

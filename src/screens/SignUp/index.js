@@ -1,26 +1,18 @@
 import React from 'react';
-import {Text, View, ScrollView, StyleSheet} from 'react-native';
+import {Text, View, ScrollView} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 
-import {theme} from '../../constants';
-const {FONTS, COLORS} = theme;
-
-import Header from '../../components/Header';
-import ScreenContainer from '../../components/ScreenContainer';
-import Container from '../../components/Container';
-import TextInput from '../../components/TextInput';
-import CheckBox from '../../components/CheckBox';
-import PrimaryButton from '../../components/PrimaryButton';
+import styles from './styles';
+import {Header, CheckBox, Container, TextInput, Button} from '../../components';
+import {icons} from '../../constants';
 
 const index = ({navigation}) => {
   return (
-    <ScrollView>
-      <ScreenContainer>
-        <Header label="Sign Up"/>
+    <ScrollView bounces={false} style={styles.scrollView}>
+      <Container isScreen>
+        <Header label="Sign Up" />
         <Container>
-          <TextInput
-            title="First Name"
-          />
+          <TextInput title="First Name" />
           <TextInput
             title="Email"
             error="*Email in use. Use a different email"
@@ -34,15 +26,13 @@ const index = ({navigation}) => {
           />
         </Container>
         <Container>
-          <CheckBox label="I agree to the Terms and Privacy Policy."/>
+          <CheckBox label="I agree to the Terms and Privacy Policy." />
         </Container>
         <Container>
-          <CheckBox label="Subscribe for select product updates."/>
+          <CheckBox label="Subscribe for select product updates." />
         </Container>
         <Container>
-          <PrimaryButton
-            textButton="Sign Up"
-          />
+          <Button textButton="Sign Up" />
         </Container>
         <Container>
           <View style={styles.orContainer}>
@@ -50,9 +40,7 @@ const index = ({navigation}) => {
           </View>
         </Container>
         <Container>
-          <PrimaryButton
-            textButton="Sign Up with Google"
-          />
+          <Button textButton="Sign Up with Google" icon={icons.google} />
         </Container>
         <Container>
           <View style={styles.accountContainer}>
@@ -62,33 +50,9 @@ const index = ({navigation}) => {
             </RectButton>
           </View>
         </Container>
-      </ScreenContainer>
+      </Container>
     </ScrollView>
   );
 };
 
 export default index;
-
-const styles = StyleSheet.create({
-  orContainer: {
-    alignSelf: 'center',
-  },
-  orText: {
-    ...FONTS.body2,
-    color: COLORS.darkgray,
-  },
-  accountContainer: {
-    alignSelf: 'center',
-    flexDirection: 'row',
-  },
-  accountText: {
-    ...FONTS.body2,
-    color: COLORS.darkgray,
-  },
-  logInText: {
-    marginHorizontal: 5,
-    ...FONTS.body2,
-    color: COLORS.primary,
-    textDecorationLine: 'underline',
-  },
-});

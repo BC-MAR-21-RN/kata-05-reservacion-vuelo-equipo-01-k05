@@ -4,17 +4,28 @@ import {theme} from '../constants';
 
 const {SIZES} = theme;
 
-const Container = ({children}) => {
+const Container = ({children, isScreen}) => {
   return (
-    <View style={styles.container}>
-      { children }
+    <View
+      style={
+        isScreen ? ScreenContainerStyles.container : ContainerStyles.container
+      }>
+      {children}
     </View>
   );
 };
 
 export default Container;
 
-const styles = StyleSheet.create({
+const ScreenContainerStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    paddingHorizontal: 16,
+    backgroundColor: 'white',
+  },
+});
+
+const ContainerStyles = StyleSheet.create({
   container: {
     paddingVertical: SIZES.padding2,
   },

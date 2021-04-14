@@ -7,7 +7,7 @@ const {SIZES, FONTS, COLORS} = theme;
 const Header = ({label}) => {
   return (
     <>
-      <SafeAreaView/>
+      <SafeAreaView />
       <View style={styles.labelContainer}>
         <Text style={styles.labelText}>{label}</Text>
       </View>

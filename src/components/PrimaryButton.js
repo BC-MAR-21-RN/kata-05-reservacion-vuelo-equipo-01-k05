@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
+import {StyleSheet, Text, TouchableHighlight, View, Image} from 'react-native';
 import {theme} from '../constants';
 
 const {COLORS} = theme;
@@ -12,9 +12,9 @@ class PrimaryButton extends Component {
   render() {
     const {pressFunction, textButton, isDisable, icon} = this.props;
 
-    const styleDisabled = isDisable ?
-      styles.buttonDisabled :
-      styles.buttonActive;
+    const styleDisabled = isDisable
+      ? styles.buttonDisabled
+      : styles.buttonActive;
 
     return (
       <TouchableHighlight
@@ -24,7 +24,7 @@ class PrimaryButton extends Component {
         underlayColor="#4050B8"
         onPress={pressFunction}>
         <View style={styles.viewText}>
-          {icon ? icon : null}
+          {icon && <Image source={icon} style={styles.iconStyle} />}
           <Text style={styles.textButton}>{textButton}</Text>
         </View>
       </TouchableHighlight>
@@ -60,8 +60,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  icon: {
-    marginRight: 4,
+  iconStyle: {
+    width: 20,
+    height: 20,
+    marginHorizontal: 5,
   },
   textButton: {
     color: 'white',
