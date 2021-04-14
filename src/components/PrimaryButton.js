@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {StyleSheet, Text, TouchableHighlight, View} from 'react-native';
-import { theme } from '../constants';
+import {theme} from '../constants';
 
-const { COLORS } = theme;
+const {COLORS} = theme;
 
 class PrimaryButton extends Component {
   constructor(props) {
@@ -12,9 +12,9 @@ class PrimaryButton extends Component {
   render() {
     const {pressFunction, textButton, isDisable, icon} = this.props;
 
-    const styleDisabled = isDisable
-      ? styles.buttonDisabled
-      : styles.buttonActive;
+    const styleDisabled = isDisable ?
+      styles.buttonDisabled :
+      styles.buttonActive;
 
     return (
       <TouchableHighlight

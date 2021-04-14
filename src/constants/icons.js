@@ -3,7 +3,7 @@ const check = require('../assets/icons/check.png');
 const google = require('../assets/icons/google.png');
 
 export default {
-    eye,
-    check,
-    google
-}
+  eye,
+  check,
+  google,
+};
