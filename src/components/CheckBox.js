@@ -31,8 +31,8 @@ const CheckBox = ({label}) => {
           <View />
         )}
       </RectButton>
-      <View style={styles.labelContainer}>
-        <Text style={styles.textLabel}>{label}</Text>
+      <View style={styles.checkBoxContainer}>
+        <Text style={styles.checkBoxLabel}>{label}</Text>
       </View>
     </View>
   );
@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
   },
-  textLabel: {
+  checkBoxLabel: {
     ...FONTS.body3,
     color: COLORS.darkgray,
   },
-  labelContainer: {
+  checkBoxContainer: {
     marginHorizontal: 10,
   },
 });
