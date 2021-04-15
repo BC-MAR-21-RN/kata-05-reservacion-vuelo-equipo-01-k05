@@ -16,7 +16,7 @@ const CheckBox = ({checkBoxlabel}) => {
         style={[
           styles.box,
           {
-            backgroundColor: isChecked ? COLORS.primary : COLORS.white,
+            backgroundColor: isChecked ? COLORS.primary : COLORS.mutedGray,
             borderColor: isChecked ? COLORS.primary : COLORS.black,
           },
         ]}
