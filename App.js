@@ -1,16 +1,15 @@
 import React from 'react';
 import {View} from 'react-native';
-import Login from './src/components/Login';
+import DataFlight from './src/components/DataFlight';
 
 const App = () => {
   return (
     <View>
-      <Login
-        errors={{
-          mailError: false,
-          passError: false,
-          mailRepeat: false,
-        }}
+      <DataFlight
+        orig={'Washington D.C., USA'}
+        dest={'Rome, Italy'}
+        date={'September 23, 2020'}
+        passengers={3}
       />
     </View>
   );
