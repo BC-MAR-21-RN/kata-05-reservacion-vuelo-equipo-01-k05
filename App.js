@@ -1,16 +1,16 @@
-import React from 'react';
-import {View} from 'react-native';
-import DataFlight from './src/components/DataFlight';
+import React, {useState} from 'react';
+import {Text, View} from 'react-native';
+import DatePicker from './src/components/DatePicker';
 
 const App = () => {
+  const [date, setDate] = useState(null);
+
+  const onDateChange = value => setDate(value);
+
   return (
     <View>
-      <DataFlight
-        orig={'Washington D.C., USA'}
-        dest={'Rome, Italy'}
-        date={'September 23, 2020'}
-        passengers={3}
-      />
+      <DatePicker onDateChange={onDateChange} />
+      <Text>{date ? date.toString() : ''}</Text>
     </View>
   );
 };
