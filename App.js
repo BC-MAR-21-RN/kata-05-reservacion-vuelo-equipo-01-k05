@@ -1,16 +1,15 @@
 import React, {useState} from 'react';
-import {Text, View} from 'react-native';
-import DatePicker from './src/components/DatePicker';
+import {View} from 'react-native';
+import PickerSelect from './src/components/PickerSelect';
 
 const App = () => {
-  const [date, setDate] = useState(null);
+  const [value, setValue] = useState('1');
 
-  const onDateChange = value => setDate(value);
+  const valueChange = itemValue => setValue(itemValue);
 
   return (
     <View>
-      <DatePicker onDateChange={onDateChange} />
-      <Text>{date ? date.toString() : ''}</Text>
+      <PickerSelect value={value} valueChange={valueChange} />
     </View>
   );
 };
