@@ -4,12 +4,10 @@ import DataFlight from '../components/DataFlight';
 import GoBackScreen from '../components/GoBackScreen';
 import PickerSelect from '../components/PickerSelect';
 import PrimaryButton from '../components/PrimaryButton';
-import {styles} from '../styles/stylePassengers';
+import {styles} from '../styles/stylePickersView';
 
 const Passengers = ({navigation}) => {
   const [number, setNumber] = useState('1');
-
-  const goBackScreen = () => navigation.goBack();
 
   const changeView = () => {
     //Guardar 'country' en store para seguir con la siguiente vista.
@@ -20,7 +18,7 @@ const Passengers = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <GoBackScreen onPress={goBackScreen} />
+      <GoBackScreen navigation={navigation} />
       <View style={styles.viewContainer}>
         <DataFlight
           origin={'Guadalajara, México'}

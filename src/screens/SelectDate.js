@@ -4,13 +4,11 @@ import DataFlight from '../components/DataFlight';
 import DatePicker from '../components/DatePicker';
 import GoBackScreen from '../components/GoBackScreen';
 import PrimaryButton from '../components/PrimaryButton';
-import {styles} from '../styles/styleSelectDate';
+import {styles} from '../styles/stylePickersView';
 
 const SelectDate = ({navigation}) => {
   const [date, setDate] = useState(null);
   const [disabled, setDisabled] = useState(false);
-
-  const goBackScreen = () => navigation.goBack();
 
   const changeDate = newDate => {
     setDate(newDate);
@@ -26,7 +24,7 @@ const SelectDate = ({navigation}) => {
 
   return (
     <View style={styles.container}>
-      <GoBackScreen onPress={goBackScreen} />
+      <GoBackScreen navigation={navigation} />
       <View style={styles.viewContainer}>
         <DataFlight
           origin={'Guadalajara, México'}
