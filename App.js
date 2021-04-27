@@ -7,13 +7,18 @@ import DestinationCountry from './src/screens/DestinationCountry';
 import SelectDate from './src/screens/SelectDate';
 import Passengers from './src/screens/Passengers';
 import DataFinish from './src/screens/DataFinish';
-
+import Login from './src/screens/SignUp'
 const Stack = createStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
+        <Stack.Screen
+          options={{headerShown: false}}
+          name="Login"
+          component={Login}
+        />
         <Stack.Screen
           options={{headerShown: false}}
           name="Home"
