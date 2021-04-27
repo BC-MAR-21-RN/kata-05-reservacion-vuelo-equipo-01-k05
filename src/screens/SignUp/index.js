@@ -1,23 +1,36 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Text, View, ScrollView} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
-
 import styles from './styles';
-import {Header, CheckBox, Container, TextInput, Button} from '../../components/index';
-
+import {
+  Header,
+  CheckBox,
+  Container,
+  TextInput,
+  Button,
+} from '../../components/index';
+import {useInput, useLoginInputController} from '../../hooks';
 
 const index = ({navigation}) => {
+  const [
+    porpsName,
+    propsEmail,
+    propsPassword,
+    validEmail,
+  ] = useLoginInputController();
   return (
     <ScrollView bounces={false} style={styles.scrollView}>
       <Container isScreen>
         <Header headerLabel="Sign Up" />
         <Container>
-          <TextInput title="First Name" />
+          <TextInput {...porpsName} title="First Name" />
           <TextInput
+            {...propsEmail}
             title="Email"
             error="*Email in use. Use a different email"
           />
           <TextInput
+            {...propsPassword}
             title="Password"
             error="*Incorrect email and/or password"
             note="Use 8 or more characters with a mix of
@@ -32,7 +45,7 @@ const index = ({navigation}) => {
           <CheckBox checkBoxlabel="Subscribe for select product updates." />
         </Container>
         <Container>
-          <Button textButton="Sign Up" />
+          <Button isDisable={!validEmail} textButton="Sign Up" />
         </Container>
         <Container>
           <View style={styles.orContainer}>
@@ -40,7 +53,7 @@ const index = ({navigation}) => {
           </View>
         </Container>
         <Container>
-          <Button textButton="Sign Up with Google"  />
+          <Button textButton="Sign Up with Google" />
         </Container>
         <Container>
           <View style={styles.accountContainer}>

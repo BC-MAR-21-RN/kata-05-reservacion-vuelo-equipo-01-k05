@@ -11,7 +11,7 @@ import {theme, icons} from '../constants';
 import styleTextInput from '../styles/styleTextInput';
 const {COLORS, FONTS, SIZES} = theme;
 
-const TextInput = ({title, password, error, note}) => {
+const TextInput = ({title, password, error, note,...rest}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isPassVisible, setIsPassVisible] = useState(password);
   return (
@@ -31,6 +31,7 @@ const TextInput = ({title, password, error, note}) => {
           secureTextEntry={isPassVisible}
           onFocus={() => setIsFocused(!isFocused)}
           style={styleTextInput.RNTextInputStyle}
+          {...rest}
         />
         {password ? (
           <TouchableOpacity onPress={() => setIsPassVisible(!isPassVisible)}>
@@ -55,4 +56,3 @@ const TextInput = ({title, password, error, note}) => {
 };
 
 export default TextInput;
-
