@@ -7,7 +7,7 @@ const Country = ({name, toRight}) => {
   const countryName = name.split(',')[1].trim();
 
   return (
-    <View style={toRight ? styles.toRight : null}>
+    <View style={toRight && styles.toRight}>
       <Text style={styles.titleAbb}>{abb}</Text>
       <Text style={styles.countryName}>{countryName}</Text>
     </View>

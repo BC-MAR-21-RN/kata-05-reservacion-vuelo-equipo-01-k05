@@ -1,29 +1,21 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
+  backColor: {
     backgroundColor: 'white',
   },
-  viewTop: {
+  styleViewTop: {
     flexDirection: 'row',
+    width: '50%',
+    marginHorizontal: 20,
+    marginTop: 20,
     justifyContent: 'space-between',
     alignItems: 'center',
     borderBottomWidth: 0.5,
     borderBottomColor: '#999796',
   },
-  viewDown: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    paddingTop: 10,
-    paddingBottom: 15,
-  },
-  textDown: {
-    fontSize: 18,
-    fontWeight: 'bold',
-  },
-  icon: {
-    width: 30,
-    height: 30,
-    tintColor: '#5C36FA',
+  location: {
+    marginTop: 80,
+    marginBottom: 150,
   },
 });
