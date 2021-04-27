@@ -9,7 +9,7 @@ import {
   TextInput,
   Button,
 } from '../../components/index';
-import {useInput, useLoginInputController} from '../../hooks';
+import {useGoogleConfig, useLoginInputController} from '../../hooks';
 
 const index = ({navigation}) => {
   const [
@@ -18,6 +18,8 @@ const index = ({navigation}) => {
     propsPassword,
     validEmail,
   ] = useLoginInputController();
+  const[singInWithGoogle]= useGoogleConfig();
+  
   return (
     <ScrollView bounces={false} style={styles.scrollView}>
       <Container isScreen>
@@ -53,7 +55,7 @@ const index = ({navigation}) => {
           </View>
         </Container>
         <Container>
-          <Button textButton="Sign Up with Google" />
+          <Button pressFunction={()=>singInWithGoogle()}  textButton="Sign Up with Google" />
         </Container>
         <Container>
           <View style={styles.accountContainer}>

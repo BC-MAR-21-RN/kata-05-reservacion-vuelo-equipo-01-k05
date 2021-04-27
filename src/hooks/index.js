@@ -1,3 +1,4 @@
 import {useInput} from './useInput';
 import {useLoginInputController} from './useLoginInputController';
-export {useInput, useLoginInputController};
+import {useGoogleConfig} from './useGoogleConfig';
+export {useInput, useLoginInputController, useGoogleConfig};
