@@ -1,6 +1,7 @@
 import {useEffect} from 'react';
 import {secret} from '../constants';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
+import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth'
 export const useGoogleConfig = () => {
   useEffect(() => {
@@ -16,7 +17,23 @@ export const useGoogleConfig = () => {
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
 
 
-    return auth().signInWithCredential(googleCredential).then((resp)=>console.log("RESPONSE==================>>>>>",resp));
+    return auth().signInWithCredential(googleCredential)
+      .then((resp)=>createAditionalData(resp))
+      .catch(err => console.log(err));
   };
   return[singInWithGoogle]
 };
+
+const createAditionalData = () => {
+  firestore()
+  .collection('usuarios')
+  .doc(auth().currentUser.uid)
+  .set({name: auth().currentUser.displayName})
+  .then(() => {
+    firestore().collection('vuelos').doc(auth().currentUser.uid).get().then(resp => {
+      if(!resp.exists) {
+        firestore().collection('vuelos').doc(auth().currentUser.uid).set({flights: []})
+      }
+    })
+  })
+}
