@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 
@@ -7,21 +7,19 @@ import {icons, theme} from '../constants';
 const {FONTS, COLORS} = theme;
 const BOX_SIZE = 11;
 
-const CheckBox = ({checkBoxlabel}) => {
-  const [isChecked, setIsChecked] = useState(false);
-
+const CheckBox = ({checkBoxlabel, state, setState}) => {
   return (
     <View style={styles.checkBoxContainer}>
       <RectButton
         style={[
           styles.box,
           {
-            backgroundColor: isChecked ? COLORS.primary : COLORS.mutedGray,
-            borderColor: isChecked ? COLORS.primary : COLORS.black,
+            backgroundColor: state ? COLORS.primary : COLORS.mutedGray,
+            borderColor: state ? COLORS.primary : COLORS.black,
           },
         ]}
-        onPress={() => setIsChecked(!isChecked)}>
-        {isChecked ? (
+        onPress={() => setState(!state)}>
+        {state ? (
           <Image
             source={icons.check}
             style={styles.icon}

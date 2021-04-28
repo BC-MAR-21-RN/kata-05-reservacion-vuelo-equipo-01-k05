@@ -1,2 +1,2 @@
-import {isValidEmail} from './is';
-export {isValidEmail};
+import {isValidEmail, isValidInput, isDisabled} from './is';
+export {isValidEmail, isValidInput, isDisabled};

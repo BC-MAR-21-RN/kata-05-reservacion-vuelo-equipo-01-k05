@@ -9,45 +9,59 @@ import {
   TextInput,
   Button,
 } from '../../components/index';
+import {isDisabled} from '../../methods'
 import {useGoogleConfig, useLoginInputController} from '../../hooks';
 
 const index = ({navigation}) => {
   const [
-    porpsName,
+    propsName,
     propsEmail,
     propsPassword,
     validEmail,
+    validPass,
+    validName
   ] = useLoginInputController();
   const[singInWithGoogle]= useGoogleConfig();
+  const [isError, setIsError] = useState(false);
+  const [checkboxAgree, setCheckboxAgree] = useState(false);
+  const [checkboxSubscribe, setCheckboxSubscribe] = useState(false);
   
   return (
     <ScrollView bounces={false} style={styles.scrollView}>
       <Container isScreen>
         <Header headerLabel="Sign Up" />
         <Container>
-          <TextInput {...porpsName} title="First Name" />
+          <TextInput 
+            {...propsName} 
+            title="First Name" />
           <TextInput
             {...propsEmail}
             title="Email"
-            error="*Email in use. Use a different email"
+            error={isError && "*Email in use. Use a different email"}
           />
           <TextInput
             {...propsPassword}
             title="Password"
-            error="*Incorrect email and/or password"
+            error={isError && "*Incorrect email and/or password"}
             note="Use 8 or more characters with a mix of
             letters, numbers, and symbols."
             password
           />
         </Container>
         <Container>
-          <CheckBox checkBoxlabel="I agree to the Terms and Privacy Policy." />
+          <CheckBox
+            state={checkboxAgree}
+            setState={setCheckboxAgree}
+          checkBoxlabel="I agree to the Terms and Privacy Policy." />
         </Container>
         <Container>
-          <CheckBox checkBoxlabel="Subscribe for select product updates." />
+          <CheckBox
+            state={checkboxSubscribe}
+            setState={setCheckboxSubscribe}
+          checkBoxlabel="Subscribe for select product updates." />
         </Container>
         <Container>
-          <Button isDisable={!validEmail} textButton="Sign Up" />
+          <Button isDisable={isDisabled(validEmail, validPass, validName, checkboxAgree)} textButton="Sign Up" />
         </Container>
         <Container>
           <View style={styles.orContainer}>

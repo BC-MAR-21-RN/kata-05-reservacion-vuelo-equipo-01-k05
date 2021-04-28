@@ -18,7 +18,7 @@ const TextInput = ({title, password, error, note,...rest}) => {
     <>
       <View style={styleTextInput.viewTitle}>
         <Text style={styleTextInput.textTitle}>{title}</Text>
-        <Text style={styleTextInput.textError}>{error}</Text>
+        {error && <Text style={styleTextInput.textError}>{error}</Text>}
       </View>
       <View
         style={[
