@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "246774280738",
+    "project_id": "reservacionvuelos-17453",
+    "storage_bucket": "reservacionvuelos-17453.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246774280738:android:797873ee59b1e6c1ae507b",
+        "android_client_info": {
+          "package_name": "com.kata05"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246774280738-t1a0v55gu5qjvsdotoudts10madvioo8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kata05",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "246774280738-14idtr75qlqqmg4h6qk01h9jgi0ul7a8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpVT1XJY0I49TrCO_Ebjf37H9fCDkDiLw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246774280738-14idtr75qlqqmg4h6qk01h9jgi0ul7a8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
