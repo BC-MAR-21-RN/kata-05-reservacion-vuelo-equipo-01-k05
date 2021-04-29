@@ -1,16 +1,16 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Text, View, ScrollView} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
-import styles from './styles';
+import styles from '../styles/styleSignUp';
 import {
   Header,
   CheckBox,
   Container,
   TextInput,
   Button,
-} from '../../components/index';
-import {isDisabled} from '../../methods'
-import {useGoogleConfig, useLoginInputController} from '../../hooks';
+} from '../../src/components';
+import {isDisabled} from '../../src/methods'
+import {useGoogleConfig, useLoginInputController} from '../../src/hooks';
 
 const index = ({navigation}) => {
   const [
@@ -52,7 +52,7 @@ const index = ({navigation}) => {
           <CheckBox
             state={checkboxAgree}
             setState={setCheckboxAgree}
-          checkBoxlabel="I agree to the Terms and Privacy Policy." />
+            checkBoxlabel="I agree to the Terms and Privacy Policy." />
         </Container>
         <Container>
           <CheckBox
@@ -74,7 +74,7 @@ const index = ({navigation}) => {
         <Container>
           <View style={styles.accountContainer}>
             <Text style={styles.accountText}>Already have an account?</Text>
-            <RectButton onPress={() => navigation.navigate('LogIn')}>
+            <RectButton onPress={() => navigation.navigate('Login')}>
               <Text style={styles.logInText}>Log In</Text>
             </RectButton>
           </View>

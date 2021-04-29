@@ -1,54 +1,58 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
-import Home from './src/screens/Home';
-import OriginCountry from './src/screens/OriginCountry';
-import DestinationCountry from './src/screens/DestinationCountry';
-import SelectDate from './src/screens/SelectDate';
-import Passengers from './src/screens/Passengers';
-import DataFinish from './src/screens/DataFinish';
-import Login from './src/screens/SignUp'
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { Home, DataFinish, DestinationCountry, OriginCountry, Passengers, SelectDate, SignUp, Login } from './src/screens';
 const Stack = createStackNavigator();
 
 const App = () => {
+  const screenInfo = [
+    {
+      name: 'SignUp',
+      component: SignUp
+    },
+    {
+      name: 'Login',
+      component: Login
+    },
+    {
+      name: 'Home',
+      component: Home
+    },
+    {
+      name: 'From',
+      component: OriginCountry
+    },
+    {
+      name: 'To',
+      component: DestinationCountry
+    },
+    {
+      name: 'SelectDate',
+      component: SelectDate
+    },
+    {
+      name: 'Passengers',
+      component: Passengers
+    },
+    {
+      name: 'DataFinish',
+      component: DataFinish
+    },
+  ]
+
+  const options = { headerShown: false };
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Login">
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Login"
-          component={Login}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Home"
-          component={Home}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="From"
-          component={OriginCountry}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="To"
-          component={DestinationCountry}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="SelectDate"
-          component={SelectDate}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="Passengers"
-          component={Passengers}
-        />
-        <Stack.Screen
-          options={{headerShown: false}}
-          name="DataFinish"
-          component={DataFinish}
-        />
+      <Stack.Navigator initialRouteName="SignUp">
+        {screenInfo.map((info) => (
+          <Stack.Screen
+            key={info.name}
+            options={options}
+            name={info.name}
+            component={info.component}
+          />
+        ))}
       </Stack.Navigator>
     </NavigationContainer>
   );

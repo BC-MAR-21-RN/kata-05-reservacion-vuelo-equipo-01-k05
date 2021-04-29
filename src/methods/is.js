@@ -7,7 +7,7 @@ export const isValidInput = value => {
   return value.length > 0 ? true : false
 }
 
-export const isDisabled = (email, pass, name, checkbox) => {
+export const isDisabled = (email, pass, name = true, checkbox = true) => {
   if(email && pass && name && checkbox){
     return false
   } else {
