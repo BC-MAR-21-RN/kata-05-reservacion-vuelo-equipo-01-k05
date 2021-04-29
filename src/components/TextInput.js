@@ -9,9 +9,9 @@ import {
 
 import {theme, icons} from '../constants';
 import styleTextInput from '../styles/styleTextInput';
-const {COLORS, FONTS, SIZES} = theme;
+const {COLORS} = theme;
 
-const TextInput = ({title, password, error, note,...rest}) => {
+const TextInput = ({title, password, error, note, ...rest}) => {
   const [isFocused, setIsFocused] = useState(false);
   const [isPassVisible, setIsPassVisible] = useState(password);
   return (

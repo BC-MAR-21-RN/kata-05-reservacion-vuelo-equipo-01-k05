@@ -28,13 +28,13 @@ const createAditionalData = () => {
     .doc(auth().currentUser.uid)
     .set({name: auth().currentUser.displayName})
     .then(resp => {
-      console.log("user cre");
+      console.log('user cre', resp);
       firestore()
         .collection('vuelos')
         .doc(auth().currentUser.uid)
         .get()
-        .then(resp => {
-          if (!resp.exists) {
+        .then(response => {
+          if (!response.exists) {
             firestore()
               .collection('vuelos')
               .doc(auth().currentUser.uid)

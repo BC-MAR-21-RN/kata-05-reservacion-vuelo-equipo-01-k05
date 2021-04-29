@@ -32,6 +32,13 @@ export const useLoginInputController = () => {
       setValidName(false);
     }
   }, [propsName.value]);
- 
-  return [propsName, propsEmail, propsPassword, validEmail, validPass, validName];
+
+  return [
+    propsName,
+    propsEmail,
+    propsPassword,
+    validEmail,
+    validPass,
+    validName,
+  ];
 };

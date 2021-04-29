@@ -5,6 +5,15 @@ import OriginCountry from './OriginCountry';
 import Passengers from './Passengers';
 import SelectDate from './SelectDate';
 import SignUp from './SignUp';
-import Login from './Login'
+import Login from './Login';
 
-export {Home, DataFinish, DestinationCountry, OriginCountry, Passengers, SelectDate, SignUp, Login};
+export {
+  Home,
+  DataFinish,
+  DestinationCountry,
+  OriginCountry,
+  Passengers,
+  SelectDate,
+  SignUp,
+  Login,
+};

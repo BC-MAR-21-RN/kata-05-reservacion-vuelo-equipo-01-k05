@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, SafeAreaView, StyleSheet} from 'react-native';
+import {Text, SafeAreaView, StyleSheet} from 'react-native';
 
 import {theme} from '../constants';
 const {SIZES, FONTS, COLORS} = theme;

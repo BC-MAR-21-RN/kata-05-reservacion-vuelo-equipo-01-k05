@@ -9,40 +9,38 @@ import {
   TextInput,
   Button,
 } from '../../src/components';
-import {isDisabled} from '../../src/methods'
+import {isDisabled} from '../../src/methods';
 import {useGoogleConfig, useLoginInputController} from '../../src/hooks';
 
-const index = ({navigation}) => {
+const SignUp = ({navigation}) => {
   const [
     propsName,
     propsEmail,
     propsPassword,
     validEmail,
     validPass,
-    validName
+    validName,
   ] = useLoginInputController();
-  const[singInWithGoogle]= useGoogleConfig();
-  const [isError, setIsError] = useState(false);
+  const [singInWithGoogle] = useGoogleConfig();
+  const [isError] = useState(false);
   const [checkboxAgree, setCheckboxAgree] = useState(false);
   const [checkboxSubscribe, setCheckboxSubscribe] = useState(false);
-  
+
   return (
     <ScrollView bounces={false} style={styles.scrollView}>
       <Container isScreen>
         <Header headerLabel="Sign Up" />
         <Container>
-          <TextInput 
-            {...propsName} 
-            title="First Name" />
+          <TextInput {...propsName} title="First Name" />
           <TextInput
             {...propsEmail}
             title="Email"
-            error={isError && "*Email in use. Use a different email"}
+            error={isError && '*Email in use. Use a different email'}
           />
           <TextInput
             {...propsPassword}
             title="Password"
-            error={isError && "*Incorrect email and/or password"}
+            error={isError && '*Incorrect email and/or password'}
             note="Use 8 or more characters with a mix of
             letters, numbers, and symbols."
             password
@@ -52,16 +50,26 @@ const index = ({navigation}) => {
           <CheckBox
             state={checkboxAgree}
             setState={setCheckboxAgree}
-            checkBoxlabel="I agree to the Terms and Privacy Policy." />
+            checkBoxlabel="I agree to the Terms and Privacy Policy."
+          />
         </Container>
         <Container>
           <CheckBox
             state={checkboxSubscribe}
             setState={setCheckboxSubscribe}
-          checkBoxlabel="Subscribe for select product updates." />
+            checkBoxlabel="Subscribe for select product updates."
+          />
         </Container>
         <Container>
-          <Button isDisable={isDisabled(validEmail, validPass, validName, checkboxAgree)} textButton="Sign Up" />
+          <Button
+            isDisable={isDisabled(
+              validEmail,
+              validPass,
+              validName,
+              checkboxAgree,
+            )}
+            textButton="Sign Up"
+          />
         </Container>
         <Container>
           <View style={styles.orContainer}>
@@ -69,7 +77,10 @@ const index = ({navigation}) => {
           </View>
         </Container>
         <Container>
-          <Button pressFunction={()=>singInWithGoogle()}  textButton="Sign Up with Google" />
+          <Button
+            pressFunction={() => singInWithGoogle()}
+            textButton="Sign Up with Google"
+          />
         </Container>
         <Container>
           <View style={styles.accountContainer}>
@@ -84,4 +95,4 @@ const index = ({navigation}) => {
   );
 };
 
-export default index;
+export default SignUp;

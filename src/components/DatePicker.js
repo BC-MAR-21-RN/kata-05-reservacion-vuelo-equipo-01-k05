@@ -2,6 +2,7 @@ import React from 'react';
 import {View, Image, Text} from 'react-native';
 import CalendarPicker from 'react-native-calendar-picker';
 import {styles} from '../styles/styleDatePicker';
+import {icons} from '../constants';
 
 const DatePicker = ({onDateChange}) => {
   const today = new Date();
@@ -26,16 +27,10 @@ const DatePicker = ({onDateChange}) => {
         selectedDayColor="#8865E6"
         selectedDayTextColor="#FFFFFF"
         previousComponent={
-          <Image
-            source={require('../assets/icons/chevron-left.png')}
-            style={styles.icon}
-          />
+          <Image source={icons.chevronLeft} style={styles.icon} />
         }
         nextComponent={
-          <Image
-            source={require('../assets/icons/chevron-right.png')}
-            style={styles.icon}
-          />
+          <Image source={icons.chevronRight} style={styles.icon} />
         }
         monthTitleStyle={styles.titleHeader}
         customDayHeaderStyles={customDayHeaderStylesCallback}

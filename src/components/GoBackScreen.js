@@ -1,15 +1,13 @@
 import React from 'react';
 import {Image, StyleSheet, TouchableWithoutFeedback} from 'react-native';
+import {icons} from '../constants';
 
 const GoBackScreen = ({navigation}) => {
   const goBackScreen = () => navigation.goBack();
 
   return (
     <TouchableWithoutFeedback onPress={goBackScreen}>
-      <Image
-        source={require('../assets/icons/chevron-left.png')}
-        style={styles.icon}
-      />
+      <Image source={icons.chevronLeft} style={styles.icon} />
     </TouchableWithoutFeedback>
   );
 };

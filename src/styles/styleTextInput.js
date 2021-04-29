@@ -1,7 +1,7 @@
 import {StyleSheet} from 'react-native';
 
 import {theme} from '../constants';
-const {FONTS, COLORS, SIZES} = theme;
+const {FONTS, COLORS} = theme;
 
 const stylesTextInput = StyleSheet.create({
   BoxContainer: {
@@ -9,9 +9,7 @@ const stylesTextInput = StyleSheet.create({
     width: '100%',
     borderWidth: 1,
     borderRadius: 3,
-    justifyContent: 'space-between',
     paddingHorizontal: 5,
-
     flexDirection: 'row',
     display: 'flex',
     justifyContent: 'center',
@@ -33,7 +31,6 @@ const stylesTextInput = StyleSheet.create({
     ...FONTS.body3,
     width: '90%',
     fontWeight: '600',
-   
   },
   textNote: {
     ...FONTS.body5,
