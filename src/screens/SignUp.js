@@ -21,7 +21,7 @@ const SignUp = ({navigation}) => {
     validPass,
     validName,
   ] = useLoginInputController();
-  const [singInWithGoogle] = useGoogleConfig();
+  const [singInWithGoogle] = useGoogleConfig(navigation);
   const [isError] = useState(false);
   const [checkboxAgree, setCheckboxAgree] = useState(false);
   const [checkboxSubscribe, setCheckboxSubscribe] = useState(false);
