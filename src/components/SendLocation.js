@@ -4,20 +4,17 @@ import LocationItem from './LocationItem';
 import PrimaryButton from './PrimaryButton';
 import {styles} from '../styles/styleDestinationCountry';
 
-const SendLocation = ({navigation, path, question}) => {
-  const [country, setCountry] = useState('');
+const SendLocation = ({navigation, countryState, path, params, question}) => {
   const [disabled, setDisabled] = useState(false);
 
   const changeCountry = text => {
     const isDisabled = text.length > 0 ? true : false;
-    setCountry(text);
+    countryState.setCountry(text);
     setDisabled(isDisabled);
   };
 
   const changeView = () => {
-    //Guardar 'country' en store para seguir con la siguiente vista.
-    console.log(country);
-    navigation.navigate(path);
+    navigation.navigate(path, params);
   };
 
   return (

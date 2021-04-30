@@ -1,17 +1,19 @@
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-import React, { useEffect, useState } from 'react';
-import { StyleSheet, SafeAreaView, FlatList, Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import {SafeAreaView, FlatList, Text, View} from 'react-native';
 import AddFlightButton from '../components/AddFlightButton';
 import DataFlight from '../components/DataFlight';
+import {styles} from '../styles/styleHome';
 
-const Home = ({ navigation }) => {
-  const [vuelos, setVuelos] = useState([])
+const Home = ({navigation}) => {
+  const [vuelos, setVuelos] = useState([]);
+  const idUser = auth().currentUser.uid;
 
   useEffect(() => {
     const subscriber = firestore()
       .collection('vuelos')
-      .doc(auth().currentUser.uid)
+      .doc(idUser)
       .onSnapshot(querySnapshot => {
         const flights = [];
 
@@ -21,20 +23,22 @@ const Home = ({ navigation }) => {
             key: documentSnapshot.id,
           });
         });
-  
+
         setVuelos(flights);
-      })
+      });
 
     return () => subscriber();
-  }, [auth().currentUser.uid])
+  }, [idUser]);
 
-  const renderItem = ({ item }) => (
-    <DataFlight
-      origin={item.origin}
-      destination={item.destination}
-      date={item.date}
-      passengers={item.passengers}
-    />
+  const renderItem = ({item}) => (
+    <View style={styles.item}>
+      <DataFlight
+        origin={item.origin}
+        destination={item.destination}
+        date={item.date}
+        passengers={item.passengers}
+      />
+    </View>
   );
 
   const goBooking = () => navigation.navigate('From');
@@ -46,29 +50,12 @@ const Home = ({ navigation }) => {
         <FlatList
           data={vuelos}
           renderItem={renderItem}
-          keyExtractor={item => item.id}
+          keyExtractor={item => item.key}
         />
       </View>
       <AddFlightButton pressFunction={goBooking} />
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'white',
-  },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    color: '#5C36FA',
-    padding: 20,
-  },
-  list: {
-    flex: 1,
-    paddingHorizontal: 30,
-  },
-});
 
 export default Home;

@@ -1,3 +1,4 @@
+import moment from 'moment';
 import React, {useState} from 'react';
 import {View} from 'react-native';
 import DataFlight from '../components/DataFlight';
@@ -6,9 +7,10 @@ import GoBackScreen from '../components/GoBackScreen';
 import PrimaryButton from '../components/PrimaryButton';
 import {styles} from '../styles/stylePickersView';
 
-const SelectDate = ({navigation}) => {
+const SelectDate = ({route, navigation}) => {
   const [date, setDate] = useState(null);
   const [disabled, setDisabled] = useState(false);
+  const {origin, destination} = route.params;
 
   const changeDate = newDate => {
     setDate(newDate);
@@ -17,19 +19,18 @@ const SelectDate = ({navigation}) => {
   };
 
   const changeView = () => {
-    //Guardar 'country' en store para seguir con la siguiente vista.
-    console.log(date);
-    navigation.navigate('Passengers');
+    navigation.navigate('Passengers', {
+      origin: origin,
+      destination: destination,
+      date: moment(date).format('LL'),
+    });
   };
 
   return (
     <View style={styles.container}>
       <GoBackScreen navigation={navigation} />
       <View style={styles.viewContainer}>
-        <DataFlight
-          origin={'Guadalajara, México'}
-          destination={'Londres, Inglaterra'}
-        />
+        <DataFlight origin={origin} destination={destination} />
         <DatePicker onDateChange={changeDate} />
       </View>
       <PrimaryButton
