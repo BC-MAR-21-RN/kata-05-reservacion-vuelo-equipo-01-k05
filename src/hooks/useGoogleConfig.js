@@ -3,7 +3,7 @@ import {secret} from '../constants';
 import {GoogleSignin} from '@react-native-google-signin/google-signin';
 import firestore from '@react-native-firebase/firestore';
 import auth from '@react-native-firebase/auth';
-export const useGoogleConfig = () => {
+export const useGoogleConfig = (navigation) => {
   useEffect(() => {
     GoogleSignin.configure({
       webClientId: secret.webClientId,
@@ -16,7 +16,11 @@ export const useGoogleConfig = () => {
 
     return auth()
       .signInWithCredential(googleCredential)
-      .then(resp => createAditionalData(resp))
+      .then(resp => {
+        createAditionalData(resp)
+        navigation.navigate('Home')
+      }
+        )
       .catch(err => console.log(err));
   };
   return [singInWithGoogle];
@@ -28,7 +32,6 @@ const createAditionalData = () => {
     .doc(auth().currentUser.uid)
     .set({name: auth().currentUser.displayName})
     .then(resp => {
-      console.log('user cre', resp);
       firestore()
         .collection('vuelos')
         .doc(auth().currentUser.uid)
